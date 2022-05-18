@@ -13,7 +13,8 @@
   <script src="loader.js"></script>
   <script src="surfacePlot.js"></script>
   <script src="contourPlot.js"></script>
-  <script src="cutPlot.js"></script>
+  <script src="cutPlotX.js"></script>
+  <script src="cutPlotY.js"></script>
   <script src="surfaceCutter.js"></script>
 
 </head>
@@ -64,12 +65,12 @@
         </div>
         <div class="row pt-5">
           <div class="col-sm-6">
-            <div id="chart3"></div>
+            <div id="cut-plot-y"></div>
             <label id="y-axis-range-label" for="y-axis-range" class="form-label">Along the Y axis (0)</label>
             <input value="0" type="range" class="form-range" id="y-axis-range">
           </div>
           <div class="col-sm-6 ps-4">
-            <div id="chart4"></div>
+            <div id="cut-plot-x"></div>
             <label id="x-axis-range-label" for="x-axis-range" class="form-label">Along the X axis (0)</label>
             <input value="0" type="range" class="form-range" id="x-axis-range">
           </div>
@@ -85,7 +86,8 @@
 
     surfacePlot.init(data);
     contourPlot.init(data);
-    cutPlot.init(data[0]);
+    cutPlotX.init(data[0]); // fix init state
+    cutPlotY.init(data[0]);
     surfaceCutter.init();
   });
 

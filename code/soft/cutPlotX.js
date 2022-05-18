@@ -1,4 +1,4 @@
-const cutPlot = {
+const cutPlotX = {
   config: {
     scrollZoom: true,
     displayModeBar: false,
@@ -32,8 +32,8 @@ const cutPlot = {
   },
 
   init: function(data) {
-    cutPlot.trace1.y = data;
-    const plotData = [cutPlot.trace1];
-    Plotly.newPlot('chart3', plotData, cutPlot.layout, cutPlot.config);
+    cutPlotX.trace1.y = data;
+    const plotData = [cutPlotX.trace1];
+    Plotly.newPlot('cut-plot-x', plotData, cutPlotX.layout, cutPlotX.config);
   }
 };

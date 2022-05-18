@@ -28,8 +28,7 @@ const surfaceCutter = {
       const surfaceData = surfacePlot.getData();
       surfaceCutter.yAxisRange.max = surfaceData.z.length - 1;
       document.getElementById("y-axis-range-label").innerHTML = "Along the Y axis (" + surfaceCutter.yAxisRange.value + ")";
-      cutPlot.init(surfaceData.z[surfaceCutter.yAxisRange.value]);
-      console.log(surfaceData.z[surfaceCutter.yAxisRange.value])
+      cutPlotY.init(surfaceData.z[surfaceCutter.yAxisRange.value]);
     });
 
     surfaceCutter.xAxisRange.addEventListener("input", (data) => {
@@ -41,7 +40,7 @@ const surfaceCutter = {
       for (let i = 0; i < surfaceData.z[0].length; ++i) {
         arr[i] = surfaceData.z[i][surfaceCutter.xAxisRange.value];
       }
-      cutPlot.init(arr);
+      cutPlotX.init(arr);
     });
 
   }
