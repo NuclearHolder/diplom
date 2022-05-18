@@ -1,6 +1,5 @@
 const surfacePlot = {
   plot: null,
-  clickedPointSpan: null,
 
   clickedPoint: {x: 0, y:0, z:0},
 
@@ -76,7 +75,6 @@ const surfacePlot = {
 
   init: function (surface) {
     surfacePlot.plot = document.getElementById('surface-plot');
-    surfacePlot.clickedPointSpan = document.getElementById("click-point-span");
 
     surfacePlot.data[0].z = surface;
     Plotly.react('surface-plot', surfacePlot.data, surfacePlot.layout,  surfacePlot.config);
@@ -87,17 +85,13 @@ const surfacePlot = {
       const x = data.points[0].x;
       const y = data.points[0].y;
       const z = data.points[0].z;
-      surfacePlot.clickedPoint.x = x;
-      surfacePlot.clickedPoint.y = y;
-      surfacePlot.clickedPoint.z = z;
-      surfacePlot.clickedPointSpan.innerHTML = "Clicked point (" + x + ", " + y + ", " + z + ")";
     });
 
     surfacePlot.plot.on('plotly_doubleclick', function(){});
     surfacePlot.plot.on('plotly_hover', function(){});
     surfacePlot.plot.on('plotly_unhover', function(){});
 
-    document.getElementById("reset-surface-eye").addEventListener("click", () => {
+    document.getElementById("reset-surface-eye-button").addEventListener("click", () => {
       surfacePlot.layout.scene.camera.eye = {x: 0, y: -2, z: 1};
       Plotly.update('surface-plot', surfacePlot.data, surfacePlot.layout,  surfacePlot.config);
     });

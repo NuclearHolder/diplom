@@ -1,4 +1,7 @@
 const contourPlot = {
+  plot: null,
+  clickedPointSpan: null,
+
   data: [{
     z: [],
     type: 'contour',
@@ -59,7 +62,18 @@ const contourPlot = {
 
 
   init: function(surface) {
+    contourPlot.plot = document.getElementById('contour-plot');
+    contourPlot.clickedPointSpan = document.getElementById("click-point-span");
+
     contourPlot.data[0].z = surface;
     Plotly.react('contour-plot', contourPlot.data, contourPlot.layout,  contourPlot.config);
+
+    contourPlot.plot.on('plotly_click', (data) => {
+      const x = data.points[0].x;
+      const y = data.points[0].y;
+      const z = data.points[0].z;
+
+      contourPlot.clickedPointSpan.innerHTML = "Clicked point (" + x + ", " + y + ", " + z + ")";
+    });
   }
 };
