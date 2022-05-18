@@ -37,11 +37,13 @@ const contourPlot = {
 
 
     xaxis:{
-      title: 'X'
+      title: 'X',
+      autorange: true
     },
 
     yaxis:{
-      title: 'Y'
+      title: 'Y',
+      autorange: true
     },
 
     margin: {
@@ -69,11 +71,29 @@ const contourPlot = {
     Plotly.react('contour-plot', contourPlot.data, contourPlot.layout,  contourPlot.config);
 
     contourPlot.plot.on('plotly_click', (data) => {
+      console.log(data);
       const x = data.points[0].x;
       const y = data.points[0].y;
       const z = data.points[0].z;
-
       contourPlot.clickedPointSpan.innerHTML = "Clicked point (" + x + ", " + y + ", " + z + ")";
+    });
+
+    contourPlot.plot.on('plotly_relayout', (data) => {
+      console.log(data);
+    });
+
+    document.getElementById("save-contour-png-button").addEventListener("click", () => {
+      Plotly.downloadImage('contour-plot', {format: 'png', width: 800, height: 600, filename: 'newplot'});
+    });
+
+    document.getElementById("save-contour-csv-button").addEventListener("click", () => {
+      alert("Этот функционал еще не реализован!\n Никита !!!\n Ждать! Ждать!");
+    });
+
+    document.getElementById("reset-contour-eye-button").addEventListener("click", () => {
+      contourPlot.layout.xaxis.autorange = true;
+      contourPlot.layout.yaxis.autorange = true;
+      Plotly.update('contour-plot', contourPlot.data, contourPlot.layout,  contourPlot.config);
     });
   }
 };
