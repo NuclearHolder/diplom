@@ -17,6 +17,13 @@ const contourPlot = {
         size: 12,
         color: 'white',
       }
+    },
+
+    xaxis: 'x1',
+    yaxis: 'y1',
+
+    colorbar: {
+      dtick: 0.1
     }
   }],
 
@@ -25,28 +32,19 @@ const contourPlot = {
     //width: 500,
     height: 400,
 
-    scene: {
-      xaxis:{
-        showspikes: true,
-        title: 'X AXIS TITLE'
-      },
 
-      yaxis:{
-        showspikes: true,
-        //automargin: true,
-        title: 'Y AXIS TITLE'
-      },
+    xaxis:{
+      title: 'X'
+    },
 
-      zaxis:{
-        showspikes: true,
-        title: 'Z AXIS TITLE'
-      }
+    yaxis:{
+      title: 'Y'
     },
 
     margin: {
       t: 0,
-      b: 0,
-      l: 0,
+      b: 50,
+      l: 50,
       r: 0,
     }
   },
@@ -62,6 +60,6 @@ const contourPlot = {
 
   init: function(surface) {
     contourPlot.data[0].z = surface;
-    Plotly.react('chart2', contourPlot.data, contourPlot.layout,  contourPlot.config);
+    Plotly.react('contour-plot', contourPlot.data, contourPlot.layout,  contourPlot.config);
   }
 };
