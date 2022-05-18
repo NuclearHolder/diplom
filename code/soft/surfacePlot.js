@@ -99,7 +99,15 @@ const surfacePlot = {
 
     document.getElementById("reset-surface-eye").addEventListener("click", () => {
       surfacePlot.layout.scene.camera.eye = {x: 0, y: -2, z: 1};
-      Plotly.update('chart', surfacePlot.data, surfacePlot.layout,  surfacePlot.config);
+      Plotly.update('surface-plot', surfacePlot.data, surfacePlot.layout,  surfacePlot.config);
+    });
+
+    document.getElementById("save-surface-png-button").addEventListener("click", () => {
+      Plotly.downloadImage('surface-plot', {format: 'png', width: 800, height: 600, filename: 'newplot'});
+    });
+
+    document.getElementById("save-surface-csv-button").addEventListener("click", () => {
+      alert("Этот функционал еще не реализован!\n Никита !!!\n Ждать! Ждать!")
     });
   },
 

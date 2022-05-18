@@ -23,7 +23,8 @@
       <div class="col-sm-2">
         <div class="d-grid gap-2 pt-2">
           <h5>Surface</span></h5>
-          <button class="btn btn-primary" type="button">Save surface to CSV</button>
+          <button id="save-surface-csv-button" class="btn btn-primary" type="button">Save to CSV</button>
+          <button id="save-surface-png-button" class="btn btn-primary" type="button">Save to PNG</button>
         </div>
         <div class="d-grid gap-2 pt-2 mt-5">
           <h5>Device</span></h5>
@@ -96,9 +97,6 @@
       const config = {};
       Plotly.react('chart', data, layout, config);
     }, 1000);*/
-
-    // --- download image ---
-    //Plotly.downloadImage('chart', {format: 'png', width: 800, height: 600, filename: 'newplot'});
 
     /*myPlot.on('plotly_click', function(){
       alert('You clicked this Plotly chart!');
