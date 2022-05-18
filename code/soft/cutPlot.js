@@ -14,7 +14,7 @@ const cutPlot = {
 
   layout: {
     //width: 500,
-    height: 250,
+    height: 200,
     margin: {
       t: 0,
       b: 30,

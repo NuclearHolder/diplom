@@ -30,10 +30,10 @@
         <div class="d-grid gap-2 pt-2 mt-5">
           <h5>Device</span></h5>
           <h5><span class="badge bg-danger">Not connected</span></h5>
-          <button class="btn btn-primary" type="button">Auto calibration</button>
         </div>
         <div class="d-grid gap-2 pt-2 mt-5">
           <h5>Home</span></h5>
+          <button class="btn btn-primary" type="button">Auto calibration</button>
           <button class="btn btn-primary" type="button">Z calibration</button>
           <button class="btn btn-primary" type="button">Start scan</button>
           <button class="btn btn-primary" type="button">Rescan zone</button>
@@ -58,15 +58,20 @@
               <button id="cut-surface-button" class="btn btn-primary" type="button">Cut</button>
             </div>
           </div>
-          <div class="col-sm-5 mt-2"><div id="contour-plot"></div></div>
+          <div class="col-sm-5 mt-2">
+            <div id="contour-plot"></div>
+          </div>
         </div>
         <div class="row pt-5">
-          <div class="col-sm-6"><div id="chart3"></div></div>
-          <div class="col-sm-6 ps-4">
-            <label id="x-axis-range-label" for="x-axis-range" class="form-label">Along the X axis (0)</label>
-            <input value="0" type="range" class="form-range" id="x-axis-range">
+          <div class="col-sm-6">
+            <div id="chart3"></div>
             <label id="y-axis-range-label" for="y-axis-range" class="form-label">Along the Y axis (0)</label>
             <input value="0" type="range" class="form-range" id="y-axis-range">
+          </div>
+          <div class="col-sm-6 ps-4">
+            <div id="chart4"></div>
+            <label id="x-axis-range-label" for="x-axis-range" class="form-label">Along the X axis (0)</label>
+            <input value="0" type="range" class="form-range" id="x-axis-range">
           </div>
         </div>
       </div>
