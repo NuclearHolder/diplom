@@ -21,7 +21,7 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-2">
+      <div class="col-sm-2 mb-4">
         <div class="d-grid gap-2 pt-2">
           <h5>Surface</span></h5>
           <button id="save-surface-csv-button" class="btn btn-primary" type="button">Save to CSV</button>
@@ -51,11 +51,11 @@
           <div class="col-sm-5 border border-5"><div id="surface-plot"></div></div>
           <div class="col-sm-2 pt-2">
             <h5>Contour</h5>
-            <div class="d-grid gap-2 pt-2">
+            <div class="d-grid gap-2 pt-2 mb-4">
               <button id="save-contour-csv-button" class="btn btn-primary" type="button">Save to CSV</button>
               <button id="save-contour-png-button" class="btn btn-primary" type="button">Save to PNG</button>
               <button id="reset-contour-eye-button" class="btn btn-primary" type="button">Reset eye</button>
-              <span id="click-point-span" class="d-block mt-2">Clicked point: (0, 0, 0)</span>
+              <span id="click-point-span" class="d-block mt-2">Clicked point: (-, -, -)</span>
               <button id="cut-surface-button" class="btn btn-primary" type="button">Set cut</button>
             </div>
           </div>
@@ -66,8 +66,18 @@
         <div class="row pt-5">
           <div class="col-sm-5">
             <div id="cut-plot-y"></div>
-            <label id="y-axis-range-label" for="y-axis-range" class="form-label">Along the Y axis (0)</label>
-            <input value="0" type="range" class="form-range" id="y-axis-range">
+            <div class="row">
+              <div class="col-sm-2 mt-2">
+                <button id="y-axis-range-left-button" class="btn btn-primary"><</button>
+              </div>
+              <div class="col-sm-8">
+                <label id="y-axis-range-label" for="y-axis-range" class="form-label">Along the Y axis (0)</label>
+                <input value="0" type="range" class="form-range" id="y-axis-range">
+              </div>
+              <div class="col-sm-2 mt-2">
+                <button id="y-axis-range-right-button" class="btn btn-primary">></button>
+              </div>
+            </div>
           </div>
           <div class="col-sm-2">
             <h5>Cuts</h5>
@@ -90,8 +100,18 @@
           </div>
           <div class="col-sm-5 ps-4">
             <div id="cut-plot-x"></div>
-            <label id="x-axis-range-label" for="x-axis-range" class="form-label">Along the X axis (0)</label>
-            <input value="0" type="range" class="form-range" id="x-axis-range">
+            <div class="row">
+              <div class="col-sm-2 mt-2">
+                <button id="x-axis-range-left-button" class="btn btn-primary"><</button>
+              </div>
+              <div class="col-sm-8">
+                <label id="x-axis-range-label" for="x-axis-range" class="form-label">Along the X axis (0)</label>
+                <input value="0" type="range" class="form-range" id="x-axis-range">
+              </div>
+              <div class="col-sm-2 mt-2">
+                <button id="x-axis-range-right-button" class="btn btn-primary">></button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

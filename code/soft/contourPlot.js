@@ -1,5 +1,6 @@
 const contourPlot = {
   plot: null,
+  clickedPoint: {},
   clickedPointSpan: null,
 
   data: [{
@@ -72,6 +73,7 @@ const contourPlot = {
 
     contourPlot.plot.on('plotly_click', (data) => {
       console.log(data);
+      contourPlot.clickedPoint = data.points[0];
       const x = data.points[0].x;
       const y = data.points[0].y;
       const z = data.points[0].z;
