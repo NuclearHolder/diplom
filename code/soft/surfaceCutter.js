@@ -41,6 +41,10 @@ const surfaceCutter = {
         return;
       }
 
+	  // TODO
+      // set y-axis-range-label and x-axis-range-label
+      // set ranges values
+
       cutPlotX.init(surfaceCutter.getCutX(contourPlot.clickedPoint.x));
       cutPlotY.init(surfaceCutter.getCutY(contourPlot.clickedPoint.y));
     });

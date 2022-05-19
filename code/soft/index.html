@@ -23,23 +23,25 @@
     <div class="row">
       <div class="col-sm-2 mb-4">
         <div class="d-grid gap-2 pt-2">
-          <h5>Surface</span></h5>
+          <h5>Surface</h5>
           <button id="save-surface-csv-button" class="btn btn-primary" type="button">Save to CSV</button>
           <button id="save-surface-png-button" class="btn btn-primary" type="button">Save to PNG</button>
           <button id="reset-surface-eye-button" class="btn btn-primary" type="button">Reset eye</button>
         </div>
-        <div class="d-grid gap-2 pt-2 mt-5">
-          <h5>Device</span></h5>
+        <div class="d-grid gap-2 pt-2 mt-4">
+          <h5>Device</h5>
+          <h6>Serial ID: HQ-AJB-34</h6>
+          <h6>FW version: v1.2 <span class="badge bg-success">Stable</span></h6>
           <h5><span class="badge bg-danger">Not connected</span></h5>
         </div>
-        <div class="d-grid gap-2 pt-2 mt-5">
+        <div class="d-grid gap-2 pt-2 mt-4">
           <h5>Home</span></h5>
           <button class="btn btn-primary" type="button">Auto calibration</button>
           <button class="btn btn-primary" type="button">Z calibration</button>
           <button class="btn btn-primary" type="button">Start scan</button>
-          <button class="btn btn-primary" type="button">Rescan zone</button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rescanZoneModal">Rescan zone</button>
         </div>
-        <div class="d-grid gap-2 pt-2 mt-5">
+        <div class="d-grid gap-2 pt-2 mt-4">
           <h5>Scan progress</span></h5>
           <div class="progress">
             <div class="progress-bar progress-bar-striped" style="width:40%">40%</div>
@@ -114,6 +116,30 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="rescanZoneModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Selecting rescan zone</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          Set png from contour plot and add grid
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+
       </div>
     </div>
   </div>
