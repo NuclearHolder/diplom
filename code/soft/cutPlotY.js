@@ -1,4 +1,6 @@
 const cutPlotY = {
+  plotDivId: 'cut-plot-y',
+
   config: {
     scrollZoom: true,
     displayModeBar: false,
@@ -34,6 +36,10 @@ const cutPlotY = {
   init: function(data) {
     cutPlotY.trace1.y = data;
     const plotData = [cutPlotY.trace1];
-    Plotly.newPlot('cut-plot-y', plotData, cutPlotY.layout, cutPlotY.config);
+    Plotly.newPlot(cutPlotY.plotDivId, plotData, cutPlotY.layout, cutPlotY.config);
+
+    document.getElementById("save-cut-y-png-button").addEventListener("click", () => {
+      Plotly.downloadImage(cutPlotY.plotDivId, {format: 'png', width: 800, height: 600, filename: 'newplot'});
+    });
   }
 };

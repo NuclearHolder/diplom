@@ -56,7 +56,7 @@
               <button id="save-contour-png-button" class="btn btn-primary" type="button">Save to PNG</button>
               <button id="reset-contour-eye-button" class="btn btn-primary" type="button">Reset eye</button>
               <span id="click-point-span" class="d-block mt-2">Clicked point: (0, 0, 0)</span>
-              <button id="cut-surface-button" class="btn btn-primary" type="button">Cut</button>
+              <button id="cut-surface-button" class="btn btn-primary" type="button">Set cut</button>
             </div>
           </div>
           <div class="col-sm-5 mt-2">
@@ -64,12 +64,31 @@
           </div>
         </div>
         <div class="row pt-5">
-          <div class="col-sm-6">
+          <div class="col-sm-5">
             <div id="cut-plot-y"></div>
             <label id="y-axis-range-label" for="y-axis-range" class="form-label">Along the Y axis (0)</label>
             <input value="0" type="range" class="form-range" id="y-axis-range">
           </div>
-          <div class="col-sm-6 ps-4">
+          <div class="col-sm-2">
+            <h5>Cuts</h5>
+            <div class="btn-group">
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Save Y</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item">Save as CSV</a>
+                  <a id="save-cut-y-png-button" class="dropdown-item">Save as PNG</a>
+                </div>
+              </div>
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Save X</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item">Save as CSV</a>
+                  <a id="save-cut-x-png-button" class="dropdown-item">Save as PNG</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-5 ps-4">
             <div id="cut-plot-x"></div>
             <label id="x-axis-range-label" for="x-axis-range" class="form-label">Along the X axis (0)</label>
             <input value="0" type="range" class="form-range" id="x-axis-range">
