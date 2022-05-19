@@ -8,6 +8,21 @@ const surfaceCutter = {
   yAxisRange: null,
   xAxisRange: null,
 
+  getCutY: function(index) {
+    return surfacePlot.getData().z[index];
+  },
+
+  getCutX: function(index) {
+    const surfaceData = surfacePlot.getData();
+
+    let arr = [];
+    for (let i = 0; i < surfaceData.z[0].length; ++i) {
+      arr[i] = surfaceData.z[i][index];
+    }
+
+    return arr;
+  },
+
   init: function() {
     surfaceCutter.cutSurfaceButton = document.getElementById("cut-surface-button");
     surfaceCutter.yAxisRange = document.getElementById("y-axis-range");
@@ -28,7 +43,7 @@ const surfaceCutter = {
       const surfaceData = surfacePlot.getData();
       surfaceCutter.yAxisRange.max = surfaceData.z.length - 1;
       document.getElementById("y-axis-range-label").innerHTML = "Along the Y axis (" + surfaceCutter.yAxisRange.value + ")";
-      cutPlotY.init(surfaceData.z[surfaceCutter.yAxisRange.value]);
+      cutPlotY.init(surfaceCutter.getCutY(surfaceCutter.yAxisRange.value));
     });
 
     surfaceCutter.xAxisRange.addEventListener("input", (data) => {
@@ -36,11 +51,7 @@ const surfaceCutter = {
       surfaceCutter.xAxisRange.max = surfaceData.z[0].length - 1;
       document.getElementById("x-axis-range-label").innerHTML = "Along the X axis (" + surfaceCutter.xAxisRange.value + ")";
 
-      let arr = [];
-      for (let i = 0; i < surfaceData.z[0].length; ++i) {
-        arr[i] = surfaceData.z[i][surfaceCutter.xAxisRange.value];
-      }
-      cutPlotX.init(arr);
+      cutPlotX.init(surfaceCutter.getCutX(surfaceCutter.xAxisRange.value));
     });
 
   }

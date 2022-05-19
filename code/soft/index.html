@@ -105,9 +105,9 @@
 
     surfacePlot.init(data);
     contourPlot.init(data);
-    cutPlotX.init(data[0]); // fix init state
-    cutPlotY.init(data[0]);
     surfaceCutter.init();
+    cutPlotX.init(surfaceCutter.getCutX(0));
+    cutPlotY.init(surfaceCutter.getCutY(0));
   });
 
     // --- update data ---
