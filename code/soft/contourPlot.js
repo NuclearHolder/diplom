@@ -26,28 +26,12 @@ const contourPlot = {
     xaxis: 'x1',
     yaxis: 'y1',
 
-    colorbar: {
-      dtick: 0.1
-    }
+    colorbar: { dtick: 0.1 }
   },
   {
     x: [1],
     y: [3],
-    //mode: 'markers+text',
-    marker:{
-      size: '16',
-      color: 'white',
-
-      /*line: {
-        color: 'rgb(255, 255, 255)',
-        width: 3
-      },*/
-      //symbol: "diamond-open-dot"
-
-    },
-
-    //text: "Hello",
-    //textposition: 'bottom right'
+    marker:{ size: '16', color: 'white' }
   }],
 
   layout: {
@@ -120,12 +104,13 @@ const contourPlot = {
     Plotly.react('contour-plot', contourPlot.data, contourPlot.layout,  contourPlot.config);
 
     contourPlot.plot.on('plotly_click', (data) => {
-      console.log(data);
       contourPlot.clickedPoint = data.points[0];
       const x = data.points[0].x;
       const y = data.points[0].y;
       const z = data.points[0].z;
       contourPlot.clickedPointSpan.innerHTML = "Clicked point (" + x + ", " + y + ", " + z + ")";
+
+      contourPlot.setMarker(x, y);
     });
 
     contourPlot.plot.on('plotly_relayout', (data) => {
@@ -145,5 +130,26 @@ const contourPlot = {
       contourPlot.layout.yaxis.autorange = true;
       Plotly.update('contour-plot', contourPlot.data, contourPlot.layout,  contourPlot.config);
     });
+  },
+
+  // Draw white filled circle, horizontal and vertical lines on the contour plot
+  setMarker: function(x, y) {
+    // Set circle
+    contourPlot.data[1].x[0] = x;
+    contourPlot.data[1].y[0] = y;
+
+    // Set horizontal dot line
+    contourPlot.layout.shapes[0].y0 = y;
+    contourPlot.layout.shapes[0].y1 = y;
+    contourPlot.layout.shapes[0].x0 = 0;
+    contourPlot.layout.shapes[0].x1 = surfacePlot.getData().z.length - 1; // TODO: surfacePlot.getMax()
+
+    // Set vertical dot line
+    contourPlot.layout.shapes[1].x0 = x;
+    contourPlot.layout.shapes[1].x1 = x;
+    contourPlot.layout.shapes[1].y0 = 0;
+    contourPlot.layout.shapes[1].y1 = surfacePlot.getData().z.length - 1; // TODO: surfacePlot.getMax()
+
+    Plotly.update('contour-plot', contourPlot.data, contourPlot.layout,  contourPlot.config);
   }
 };
