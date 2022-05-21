@@ -29,6 +29,25 @@ const contourPlot = {
     colorbar: {
       dtick: 0.1
     }
+  },
+  {
+    x: [1],
+    y: [3],
+    //mode: 'markers+text',
+    marker:{
+      size: '16',
+      color: 'white',
+
+      /*line: {
+        color: 'rgb(255, 255, 255)',
+        width: 3
+      },*/
+      //symbol: "diamond-open-dot"
+
+    },
+
+    //text: "Hello",
+    //textposition: 'bottom right'
   }],
 
   layout: {
@@ -52,7 +71,36 @@ const contourPlot = {
       b: 50,
       l: 50,
       r: 0,
-    }
+    },
+
+    shapes: [
+      {
+        type: 'line',
+        y0: 3,
+        y1: 3,
+        x0: 0,
+        x1: 4,
+
+        line: {
+          color: 'white',
+          width: 1.5,
+          dash: 'dot'
+        }
+      },
+      {
+        type: 'line',
+        y0: 0,
+        y1: 4,
+        x0: 1,
+        x1: 1,
+
+        line: {
+          color: 'white',
+          width: 1.5,
+          dash: 'dot'
+        }
+      }
+    ]
   },
 
   config: {
