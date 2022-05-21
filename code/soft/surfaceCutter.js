@@ -41,9 +41,11 @@ const surfaceCutter = {
         return;
       }
 
-	  // TODO
-      // set y-axis-range-label and x-axis-range-label
-      // set ranges values
+      document.getElementById("x-axis-range-label").innerHTML = "Along the X axis (" + contourPlot.clickedPoint.x + ")";
+      document.getElementById("y-axis-range-label").innerHTML = "Along the Y axis (" + contourPlot.clickedPoint.y + ")";
+
+      surfaceCutter.xAxisRange.value = contourPlot.clickedPoint.x;
+      surfaceCutter.yAxisRange.value = contourPlot.clickedPoint.y;
 
       cutPlotX.init(surfaceCutter.getCutX(contourPlot.clickedPoint.x));
       cutPlotY.init(surfaceCutter.getCutY(contourPlot.clickedPoint.y));
