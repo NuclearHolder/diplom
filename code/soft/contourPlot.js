@@ -35,9 +35,37 @@ const contourPlot = {
   }],
 
   layout: {
-    //title: 'Nikitos surface',
-    //width: 500,
     height: 400,
+
+    hoverinfo: 'none', // not works
+
+    annotations: [
+      {
+        x: 1,
+        y: 3,
+        xref: 'x',
+        yref: 'y',
+        text: '(1, 3)',
+        showarrow: true,
+        font: {
+          family: 'Courier New, monospace',
+          size: 16,
+          color: 'white'
+        },
+        align: 'center',
+        arrowhead: 2,
+        arrowsize: 1,
+        arrowwidth: 2,
+        arrowcolor: 'black',
+        ax: 20,
+        ay: -30,
+        bordercolor: 'white',
+        borderwidth: 2,
+        borderpad: 4,
+        bgcolor: 'black',
+        //opacity: 0.8
+      }
+    ],
 
 
     xaxis:{
@@ -133,11 +161,15 @@ const contourPlot = {
     });
   },
 
-  // Draw white filled circle, horizontal and vertical lines on the contour plot
+  // Draw marker on the contour plot
   setMarker: function(x, y) {
     // Set circle
     contourPlot.data[1].x[0] = x;
     contourPlot.data[1].y[0] = y;
+
+    // Set rectangle annotation
+    contourPlot.layout.annotations[0].x = x;
+    contourPlot.layout.annotations[0].y = y;
 
     // Set horizontal dot line
     contourPlot.layout.shapes[0].y0 = y;
