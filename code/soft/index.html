@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-2.12.1.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
   <script src="loader.js"></script>
   <script src="surfacePlot.js"></script>
@@ -18,6 +19,7 @@
   <script src="cutPlotY.js"></script>
   <script src="surfaceCutter.js"></script>
   <script src="calibration.js"></script>
+  <script src="rescaner.js"></script>
 
 </head>
 <body>
@@ -123,7 +125,7 @@
   </div>
 
   <div class="modal" id="rescanZoneModal">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
 
         <!-- Modal Header -->
@@ -134,7 +136,8 @@
 
         <!-- Modal body -->
         <div class="modal-body">
-          Set png from contour plot and add grid
+          <img id="contour-plot-image"></img>
+          <button onclick="rescaner.getSnapshot()">getSnapshot</button>
         </div>
 
         <!-- Modal footer -->
