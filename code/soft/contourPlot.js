@@ -150,9 +150,9 @@ const contourPlot = {
       Plotly.downloadImage('contour-plot', {format: 'png', width: 800, height: 600, filename: 'newplot'});
     });
 
-    document.getElementById("save-contour-csv-button").addEventListener("click", () => {
+    /*document.getElementById("save-contour-csv-button").addEventListener("click", () => {
       alert("Этот функционал еще не реализован!\n Никита !!!\n Ждать! Ждать!");
-    });
+    });*/
 
     document.getElementById("reset-contour-eye-button").addEventListener("click", () => {
       contourPlot.layout.xaxis.autorange = true;

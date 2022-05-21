@@ -94,8 +94,20 @@ const surfaceCutter = {
     });
   },
 
+  downloadCsvAs3D: function(arr, filename) {
+    let str = "y;x;z\n";
+    for (let y = 0; y < arr.length; ++y) {
+      for (let x = 0; x < arr.length; ++x) {
+        console.log(arr[y][x]);
+        str += y.toString() + "; " + x.toString() + "; " + arr[y][x].toString() + "\n";
+      }
+    }
+
+    surfaceCutter.downloadBlob(str, filename, "ext/csv;charset=utf-8;");
+  },
+
   downloadCsvAs2D: function(arr, filename) {
-    console.log(arr);
+
     let str = "x;y\n";
 
     for (let i = 0; i < arr.length; ++i) {

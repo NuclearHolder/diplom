@@ -101,7 +101,7 @@ const surfacePlot = {
     });
 
     document.getElementById("save-surface-csv-button").addEventListener("click", () => {
-      alert("Этот функционал еще не реализован!\n Никита !!!\n Ждать! Ждать!");
+      surfaceCutter.downloadCsvAs3D(surfacePlot.data[0].z, "surface.csv")
     });
   },
 
