@@ -111,6 +111,7 @@ const contourPlot = {
       contourPlot.clickedPointSpan.innerHTML = "Clicked point (" + x + ", " + y + ", " + z + ")";
 
       contourPlot.setMarker(x, y);
+      surfaceCutter.setXY(x, y);
     });
 
     contourPlot.plot.on('plotly_relayout', (data) => {

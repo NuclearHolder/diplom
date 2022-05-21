@@ -36,35 +36,21 @@ const surfaceCutter = {
 
     // "Set cut" button handler, set cut params to X and Y intersections
     surfaceCutter.cutSurfaceButton.addEventListener("click", () => {
-      if (contourPlot.clickedPoint.x === undefined || contourPlot.clickedPoint.y === undefined) {
-        alert("Not selected clicked point!\nClick on contour plot first!");
-        return;
-      }
-
-      document.getElementById("x-axis-range-label").innerHTML = "Along the X axis (" + contourPlot.clickedPoint.x + ")";
-      document.getElementById("y-axis-range-label").innerHTML = "Along the Y axis (" + contourPlot.clickedPoint.y + ")";
-
-      surfaceCutter.xAxisRange.value = contourPlot.clickedPoint.x;
-      surfaceCutter.yAxisRange.value = contourPlot.clickedPoint.y;
-
-      cutPlotX.init(surfaceCutter.getCutX(contourPlot.clickedPoint.x));
-      cutPlotY.init(surfaceCutter.getCutY(contourPlot.clickedPoint.y));
+      surfaceCutter.setXY(contourPlot.clickedPoint.x, contourPlot.clickedPoint.y)
     });
 
     // Horizontal range INPUT event handler, intersection Y
     surfaceCutter.yAxisRange.addEventListener("input", (data) => {
       const surfaceData = surfacePlot.getData();
       surfaceCutter.yAxisRange.max = surfaceData.z.length - 1;
-      document.getElementById("y-axis-range-label").innerHTML = "Along the Y axis (" + surfaceCutter.yAxisRange.value + ")";
-      cutPlotY.init(surfaceCutter.getCutY(surfaceCutter.yAxisRange.value));
+      surfaceCutter.setY(surfaceCutter.yAxisRange.value);
     });
 
     // Horizontal range INPUT event handler, intersection X
     surfaceCutter.xAxisRange.addEventListener("input", (data) => {
       const surfaceData = surfacePlot.getData();
       surfaceCutter.xAxisRange.max = surfaceData.z[0].length - 1;
-      document.getElementById("x-axis-range-label").innerHTML = "Along the X axis (" + surfaceCutter.xAxisRange.value + ")";
-      cutPlotX.init(surfaceCutter.getCutX(surfaceCutter.xAxisRange.value));
+      surfaceCutter.setX(surfaceCutter.xAxisRange.value);
     });
 
     // Decrease intersection Y button handler
@@ -73,8 +59,7 @@ const surfaceCutter = {
         --surfaceCutter.yAxisRange.value;
       }
 
-      document.getElementById("y-axis-range-label").innerHTML = "Along the Y axis (" + surfaceCutter.yAxisRange.value + ")";
-      cutPlotY.init(surfaceCutter.getCutY(surfaceCutter.yAxisRange.value));
+      surfaceCutter.setY(surfaceCutter.yAxisRange.value);
     });
 
     // Increase intersection Y button handler
@@ -86,8 +71,7 @@ const surfaceCutter = {
         ++surfaceCutter.yAxisRange.value;
       }
 
-      document.getElementById("y-axis-range-label").innerHTML = "Along the Y axis (" + surfaceCutter.yAxisRange.value + ")";
-      cutPlotY.init(surfaceCutter.getCutY(surfaceCutter.yAxisRange.value));
+      surfaceCutter.setY(surfaceCutter.yAxisRange.value);
     });
 
     document.getElementById("x-axis-range-left-button").addEventListener("click", (data) => {
@@ -95,8 +79,7 @@ const surfaceCutter = {
         --surfaceCutter.xAxisRange.value;
       }
 
-      document.getElementById("x-axis-range-label").innerHTML = "Along the X axis (" + surfaceCutter.xAxisRange.value + ")";
-      cutPlotX.init(surfaceCutter.getCutX(surfaceCutter.xAxisRange.value));
+      surfaceCutter.setX(surfaceCutter.xAxisRange.value);
     });
 
     document.getElementById("x-axis-range-right-button").addEventListener("click", (data) => {
@@ -107,8 +90,27 @@ const surfaceCutter = {
         ++surfaceCutter.xAxisRange.value;
       }
 
-      document.getElementById("x-axis-range-label").innerHTML = "Along the X axis (" + surfaceCutter.xAxisRange.value + ")";
-      cutPlotX.init(surfaceCutter.getCutX(surfaceCutter.xAxisRange.value));
+      surfaceCutter.setX(surfaceCutter.xAxisRange.value);
     });
+  },
+
+  // Global apply new 'x' and 'y' coordinates
+  setXY: function(x, y) {
+    surfaceCutter.setX(x);
+    surfaceCutter.setY(y);
+  },
+
+  // Global apply new 'x' coordinate
+  setX: function(x) {
+    document.getElementById("x-axis-range-label").innerHTML = "Along the X axis (" + x + ")";
+    surfaceCutter.xAxisRange.value = x;
+    cutPlotX.init(surfaceCutter.getCutX(x));
+  },
+
+  // Global apply new 'y' coordinate
+  setY: function(y) {
+    document.getElementById("y-axis-range-label").innerHTML = "Along the Y axis (" + y + ")";
+    surfaceCutter.yAxisRange.value = y;
+    cutPlotY.init(surfaceCutter.getCutY(y));
   }
 };
