@@ -170,6 +170,7 @@ const contourPlot = {
     // Set rectangle annotation
     contourPlot.layout.annotations[0].x = x;
     contourPlot.layout.annotations[0].y = y;
+    contourPlot.layout.annotations[0].text = "(" + x + ", " + y + ")"
 
     // Set horizontal dot line
     contourPlot.layout.shapes[0].y0 = y;
