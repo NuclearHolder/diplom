@@ -24,7 +24,7 @@ const surfaceCutter = {
   },
 
   init: function() {
-    surfaceCutter.cutSurfaceButton = document.getElementById("cut-surface-button");
+    //surfaceCutter.cutSurfaceButton = document.getElementById("cut-surface-button");
     surfaceCutter.yAxisRange = document.getElementById("y-axis-range");
     surfaceCutter.xAxisRange = document.getElementById("x-axis-range");
 
@@ -35,9 +35,9 @@ const surfaceCutter = {
     surfaceCutter.xAxisRange.max = surfaceData.z[0].length - 1;
 
     // "Set cut" button handler, set cut params to X and Y intersections
-    surfaceCutter.cutSurfaceButton.addEventListener("click", () => {
+    /*surfaceCutter.cutSurfaceButton.addEventListener("click", () => {
       surfaceCutter.setXY(contourPlot.clickedPoint.x, contourPlot.clickedPoint.y)
-    });
+    });*/
 
     // Horizontal range INPUT event handler, intersection Y
     surfaceCutter.yAxisRange.addEventListener("input", (data) => {
