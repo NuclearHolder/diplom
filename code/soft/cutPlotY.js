@@ -41,5 +41,9 @@ const cutPlotY = {
     document.getElementById("save-cut-y-png-button").addEventListener("click", () => {
       Plotly.downloadImage(cutPlotY.plotDivId, {format: 'png', width: 800, height: 600, filename: 'newplot'});
     });
+
+    document.getElementById("save-cut-y-csv-button").addEventListener("click", () => {
+      surfaceCutter.downloadCsvAs2D(cutPlotY.trace1.y, "y-cut.csv");
+    });
   }
 };

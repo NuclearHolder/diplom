@@ -94,6 +94,29 @@ const surfaceCutter = {
     });
   },
 
+  downloadCsvAs2D: function(arr, filename) {
+    console.log(arr);
+    let str = "x;y\n";
+
+    for (let i = 0; i < arr.length; ++i) {
+      str += i.toString() + "; " +  arr[i].toString() + "\n";
+    }
+
+    surfaceCutter.downloadBlob(str, filename, "ext/csv;charset=utf-8;");
+  },
+
+  downloadBlob: function(content, filename, contentType) {
+    // Create a blob
+    var blob = new Blob([content], { type: contentType });
+    var url = URL.createObjectURL(blob);
+
+    // Create a link to download it
+    var pom = document.createElement('a');
+    pom.href = url;
+    pom.setAttribute('download', filename);
+    pom.click();
+  },
+
   // Global apply new 'x' and 'y' coordinates
   setXY: function(x, y) {
     surfaceCutter.setX(x);

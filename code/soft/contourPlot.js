@@ -143,7 +143,7 @@ const contourPlot = {
     });
 
     contourPlot.plot.on('plotly_relayout', (data) => {
-      console.log(data);
+      //console.log(data);
     });
 
     document.getElementById("save-contour-png-button").addEventListener("click", () => {
