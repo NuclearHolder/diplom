@@ -25,6 +25,7 @@ const calibration = {
   },
 
   setView: function(view) {
+    $("#calib-progress").css("width", "0%");
     $("#start-calibration-init-state").hide();
     $("#start-calibration-process-state").hide();
     $("#calibration-finished-state").hide();
