@@ -14,7 +14,7 @@ var loader = {
       let arr2 = [];
 
       for (let j = 0; j < size; ++j) {
-        arr2.push(loader.getRandomInt(3));
+        arr2.push((Math.sin(i*0.5)+2)*Math.random());
       }
 
       arr.push(arr2);
