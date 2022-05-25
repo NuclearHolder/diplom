@@ -40,7 +40,7 @@ const surfacePlot = {
       zaxis:{
         showspikes: true,
         title: 'Z',
-        //range: [0,5]
+        range: [-2,2]
       },
 
       camera: {
