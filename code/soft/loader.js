@@ -9,9 +9,15 @@ var loader = {
 
   generateData: function (size) {
     let arr = [];
+
     for (let i = 0; i < size; ++i) {
-      //arr.push(Array(size).fill().map(()=>loader.getRandomFloat()));
-      arr.push(Array(size).fill().map(()=>loader.getRandomInt(3) + 10));
+      let arr2 = [];
+
+      for (let j = 0; j < size; ++j) {
+        arr2.push(loader.getRandomInt(3));
+      }
+
+      arr.push(arr2);
     }
 
     return arr;

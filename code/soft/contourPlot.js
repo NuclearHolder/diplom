@@ -35,7 +35,7 @@ const contourPlot = {
   }],
 
   layout: {
-    height: 400,
+    height: 380,
 
     hoverinfo: 'none', // not works
 

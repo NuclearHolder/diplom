@@ -34,21 +34,21 @@
         </div>
         <div class="d-grid gap-2 pt-2 mt-4">
           <h5>Device</h5>
-          <h6>Serial ID: HQ-AJB-34</h6>
+          <h6>Serial ID: XX-XXX-XX</h6>
           <h6>FW version: v1.2 <span class="badge bg-success">Stable</span></h6>
           <h5><span class="badge bg-danger">Not connected</span></h5>
         </div>
         <div class="d-grid gap-2 pt-2 mt-4">
           <h5>Home</span></h5>
-          <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#auto-calibration-modal">Auto calibration</button>
-          <button class="btn btn-primary" type="button">Z calibration</button>
-          <button class="btn btn-primary" type="button">Start scan</button>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rescanZoneModal">Rescan zone</button>
+          <button class="btn btn-secondary disabled" type="button" data-bs-toggle="modal" data-bs-target="#auto-calibration-modal">Auto calibration</button>
+          <button class="btn btn-secondary disabled" type="button">Z calibration</button>
+          <button class="btn btn-secondary disabled" type="button">Start scan</button>
+          <button class="btn btn-secondary disabled" data-bs-toggle="modal" data-bs-target="#rescanZoneModal">Rescan zone</button>
         </div>
         <div class="d-grid gap-2 pt-2 mt-4">
           <h5>Scan progress</span></h5>
           <div class="progress">
-            <div class="progress-bar progress-bar-striped" style="width:40%">40%</div>
+            <div class="progress-bar progress-bar-striped" style="width:0%">0%</div>
           </div>
         </div>
       </div>
@@ -65,7 +65,7 @@
               <!-- <button id="cut-surface-button" class="btn btn-primary" type="button">Set cut</button> -->
             </div>
           </div>
-          <div class="col-sm-5 mt-2">
+          <div class="col-sm-5 border border-5 pt-2">
             <div id="contour-plot"></div>
           </div>
         </div>
@@ -208,7 +208,7 @@
 </html>
 <script>
   window.addEventListener("load", () => {
-    const data = loader.generateData(5);
+    const data = loader.generateData(10);
 
     surfacePlot.init(data);
     contourPlot.init(data);
