@@ -11,7 +11,7 @@ var loader = {
     let arr = [];
     for (let i = 0; i < size; ++i) {
       //arr.push(Array(size).fill().map(()=>loader.getRandomFloat()));
-      arr.push(Array(size).fill().map(()=>loader.getRandomInt(3)));
+      arr.push(Array(size).fill().map(()=>loader.getRandomInt(3) + 10));
     }
 
     return arr;
