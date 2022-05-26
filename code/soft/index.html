@@ -23,11 +23,20 @@
 
 </head>
 <body>
-  <div class="container-fluid">
-    Hello
+  <div id="file-select-window" class="container-fluid ">
+    <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+      <div class="card mt-4 mb-4">
+        <div class="card-header">
+          <h4 class="card-title d-flex justify-content-center">File selecting</h4>
+        </div>
+        <div class="card-body">
+          <input type="file" id="select-file-input">
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="container-fluid d-none">
+  <div id="work-window" class="container-fluid d-none">
     <div class="row">
       <div class="col-sm-2 mb-4">
         <div class="d-grid gap-2 pt-2">
@@ -220,6 +229,7 @@
     cutPlotX.init(surfaceCutter.getCutX(1));
     cutPlotY.init(surfaceCutter.getCutY(3));
     calibration.init();
+    loader.init();
   });
 
     // --- update data ---

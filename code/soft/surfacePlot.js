@@ -21,7 +21,7 @@ const surfacePlot = {
 
   layout: {
     //title: 'Nikitos surface',
-    //width: 600,
+    width: 400,
     height: 400,
 
     //autosize: true,

@@ -20,7 +20,7 @@ var loader = {
     let f2 = 1/freq2;
     let Omega2 = 10;
     let A2 = 1;
-    
+
     let freq3 = 100;
     let f3 = 1/freq3;
     let Omega3 = 0;
@@ -40,12 +40,12 @@ var loader = {
         let fun3 = A3 * Math.sin(con*f3*j + Omega3);
 
         let sqrt1 = i * i;
-        
+
         let sqrt2 = inv * inv;
 
         let fun4 = (S4 + Math.exp(-(A4*(i*i))));
         let fun5 = -(Math.exp(-(A4*(sqrt2))));
-        
+
         let fun12 = fun1 * fun2;
 
         let fun12fun3 = fun12 + fun3;
@@ -57,12 +57,19 @@ var loader = {
         let fun12fun3fun45 = fun45 + fun12fun3;
 
         arr2.push(fun12fun3fun4);
-        
+
       }
 
       arr.push(arr2);
     }
 
     return arr;
+  },
+
+  init: function() {
+    $("#select-file-input").change(function(e) {
+      $("#file-select-window").addClass("d-none");
+      $("#work-window").removeClass("d-none");
+    });
   }
 }

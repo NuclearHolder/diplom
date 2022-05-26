@@ -15,7 +15,7 @@ const cutPlotY = {
   },
 
   layout: {
-    //width: 500,
+    width: 500,
     height: 200,
     margin: {
       t: 0,
